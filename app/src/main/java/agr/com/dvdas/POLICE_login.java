@@ -47,7 +47,7 @@ public class POLICE_login extends AppCompatActivity {
                 final String us=user.getText().toString().trim();
                 final String pa=pass.getText().toString().trim();
                 StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                        "http://192.168.43.224/API/police.php",
+                        "http://192.168.56.1/API/police.php",
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
@@ -65,7 +65,7 @@ public class POLICE_login extends AppCompatActivity {
                                         {
 
                                             Intent i1=new Intent(POLICE_login.this,Police_detail.class);
-                                            i1.putExtra("user",us);
+                                            i1.putExtra("user",jsonObject.getString("name"));
 
                                             startActivity(i1);
                                             break;
